@@ -1,7 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  	def time_and_date_overlap()
+  	def self.time_and_date_overlap()
 =begin 
 This method will calculate a way of getting time and date 
 and setting it as one single unit for chacking availability
@@ -11,7 +11,7 @@ and setting it as one single unit for chacking availability
 
 
 
-	def is_available(restaurant)	
+	def self.is_available(restaurant)	
 =begin
 This method will check through the database for restaurants
 and return a true or false statement depending on their criteria:
@@ -39,13 +39,13 @@ and return a true or false statement depending on their criteria:
 
 
 
-	def list_restaurants(neighbourhood)
+	def self.list_restaurants(neighbourhood)
 =begin 
 This method will iterate over a lot of restaurants, check if they are 
 available, and return an array of restaurants
 =end	
 		restaurants = []
-		neighbourhood_id = Neighbourhood.where(name: 'neighbourhood').first.id
+		neighbourhood_id = Neighbourhood.where(name: neighbourhood).first.id
 		restaurants << Restaurant.where(neighbourhood_id: neighbourhood_id)
 		return restaurants
 	end
@@ -54,11 +54,11 @@ available, and return an array of restaurants
 
 
 
-	def random_item(array)
+	def self.random_item(array)
 =begin 
 This method will shuffle the array of restaurants and return one OBJECT 
 =end
-		return array.shuffle.sample	
+		return array[0].shuffle.sample	
 	end
 
 end

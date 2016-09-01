@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# @neighbourhood = Neighbourhood.create(
-# 	name: "Little Italy")
+Neighbourhood.create(
+	name: "Little Italy")
 
-# Neighbourhood.create(
-# 	name: "China Town")
+Neighbourhood.create(
+	name: "China Town")
 
-# Neighbourhood.create(
-# 	name: "Liberty Village")
+Neighbourhood.create(
+	name: "Liberty Village")
 
 
 # Restaurant.create(
