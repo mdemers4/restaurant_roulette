@@ -1,3 +1,4 @@
 class Neighbourhood < ApplicationRecord
-  has_many :restaurants 
+	validates :name, presence: true
+  has_many :restaurants
 end
