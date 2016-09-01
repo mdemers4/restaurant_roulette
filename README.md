@@ -46,7 +46,7 @@ WE DEM FUCKING BOIS, BOIS.
   - link to "manage my restaurants schedules"
 
 5. restaurant roulette page
-  - form with fields: date(drop down), time(drop down), party size(drop down), neibourhood(drop down)
+  - form with fields: date(drop down), time(drop down), party size(drop down), neighborhood(drop down)
   - Big button(say some cool shit), link to confirmation page
 
 6. Restaurants schedules page
@@ -57,7 +57,7 @@ WE DEM FUCKING BOIS, BOIS.
     - shows reservations for that restaurant
     - link to back
   6b. make a new restaurant page
-    - form with fields: name, address, neighbourhood
+    - form with fields: name, address, neighborhood
     - submit takes user back to restaurant pages
 
 7. confirmation page
