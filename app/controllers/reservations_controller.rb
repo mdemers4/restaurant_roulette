@@ -6,10 +6,11 @@ end
 
 def new
   @reservation = Reservation.new
-end
+  @neighbourhood = Neighbourhood.all
 
 def create
 end
+
 
 
 end
