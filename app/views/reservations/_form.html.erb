@@ -12,6 +12,10 @@
   <%= f.label :size %><br />
   <%= f.select :size, (1..10) %>
 </div>
+<div class="field">
+  <%= label_tag :neighbourhood %><br/>
+  <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
+</div>
 <div class="actions"><br/>
   <%= f.submit %>
 </div>
