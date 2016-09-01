@@ -1,0 +1,18 @@
+<%= form_for (@reservation) do |f| %>
+
+<div class="field">
+  <%= f.label :date %><br />
+  <%= select_date Date.today, prefix: :date %>
+</div>
+<div class="field">
+  <%= f.label :time %><br />
+  <%= select_hour Time.current, prefix: :time %>
+</div>
+<div class="field">
+  <%= f.label :size %><br />
+  <%= f.select :size, (1..10) %>
+</div>
+<div class="actions"><br/>
+  <%= f.submit %>
+</div>
+<% end %>

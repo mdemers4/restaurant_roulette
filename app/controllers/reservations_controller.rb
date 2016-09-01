@@ -5,11 +5,13 @@ def index
 end
 
 def new
-  @reservation = Reservation.new 
+  @reservation = Reservation.new
+  @neighbourhood = Neighbourhood.all
 end
 
 def create
 end
+
 
 
 end
