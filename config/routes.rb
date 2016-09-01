@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:new, :create, :show]
 
-  resources :restaurants, only: [:new, :create]
+  resources :restaurants, only: [:new, :create :show]
 
 end
