@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Neighbourhood.create(
-# 	name: "Little Italy")
+@neighbourhood = Neighbourhood.create(
+	name: "Little Italy")
 
 # Neighbourhood.create(
 # 	name: "China Town")
@@ -36,12 +36,20 @@
 # 	)
 
 
-# User.create(
-# 	name: "mitch",
-# 	email: "m@m.com",
-# 	phone: "9059059050",
-# 	password_digest: nil
-# 	)
+@user = User.create(
+	name: "mitch",
+	email: "m@m.com",
+	phone: "9059059050",
+	password_digest: nil
+	)
+
+Restaurant.create{
+	name: "papa's pizza", 
+	address: '123 collage st',
+	neighbourhood: @neighbourhood ,
+	user: @user
+	}
+
 # User.create(
 # 	name: "a",
 # 	email: "a@m.com",
