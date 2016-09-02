@@ -1,22 +1,22 @@
-<%= form_for (@reservation) do |f| %>
+<%= form_for [@user, @reservation] do |f| %>
 
-<div class="field">
-  <%= f.label :date %><br />
-  <%= select_date Date.today, prefix: :date %>
-</div>
-<div class="field">
-  <%= f.label :time %><br />
-  <%= select_hour Time.current, prefix: :time %>
-</div>
-<div class="field">
-  <%= f.label :size %><br />
-  <%= f.select :size, (1..10) %>
-</div>
-<div class="field">
-  <%= label_tag :neighbourhood %><br/>
-  <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
-</div>
-<div class="actions"><br/>
-  <%= f.submit %>
-</div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= select_date Date.today, prefix: :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= select_hour Time.current, prefix: :time %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.select :size, (1..10) %>
+  </div>
+  <div class="field">
+    <%= label_tag :neighbourhood %><br/>
+    <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
+  </div>
+  <div class="actions"><br/>
+    <%= f.submit %>
+  </div>
 <% end %>

@@ -6,10 +6,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_new_path, notice: "Signed up!"
+      session[:user_id] = @user.id # added function to start session after user have signed-up
+      redirect_to @user, notice: "Signed up!"
     else
       render "new"
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

@@ -35,6 +35,7 @@ WE DEM FUCKING BOIS, BOIS.
 
 2. sign-up page
   - name, email, phone, password_digest, confirm password
+  - link to user home page right away
 
 3. login page
   - email and password_digest
