@@ -14,11 +14,19 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
+    num_of_restaurants = count(@neighbourhood.restaurant)
+    random_num = rand(0..num_of_restaurants)
+    @reservation.restaurant = random_num
     if @reservation.save
       redirect_to user_reservations_path(@user), notice: "Reservation created"
     else
       render "new"
     end
+  end
+
+  private
+  def reservation_params
+    params.require(:reservation).permit(:time, :date, :size)
   end
 
 end

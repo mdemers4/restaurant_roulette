@@ -16,24 +16,24 @@ Neighbourhood.create(
 	name: "Liberty Village")
 
 
-# Restaurant.create(
-# 	name: "papa's pizza",
-# 	address: '123 collage st',
-# 	neighbourhood: 1 ,
-# 	user: 1
-# 	)
-# Restaurant.create(
-# 	name: "Gen Tzo",
-# 	address: '123 spedina st',
-# 	neighbourhood: 2,
-# 	user: 2
-# 	)
-# Restaurant.create(
-# 	name: "hipster central",
-# 	address: 'east liberty st ',
-# 	neighbourhood: 3,
-# 	user: 3
-# 	)
+Restaurant.create(
+	name: "papa's pizza",
+	address: '123 collage st',
+	neighbourhood: "Little Italy" ,
+	user: 1
+	)
+Restaurant.create(
+	name: "Gen Tzo",
+	address: '123 spedina st',
+	neighbourhood: "China Town",
+	user: 2
+	)
+Restaurant.create(
+	name: "hipster central",
+	address: 'east liberty st',
+	neighbourhood: "Liberty Village",
+	user: 3
+	)
 
 
 @user = User.create(

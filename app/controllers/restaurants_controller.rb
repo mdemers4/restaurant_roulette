@@ -1,10 +1,12 @@
 class RestaurantsController < ApplicationController
 	def new
-		@restaurants = Restaurant.new
+		@restaurant = Restaurant.new
 	end
 
 	def create
+		@user = current_user
 		@restaurant = Restaurant.new(restaurant_params)
+		redirect_to @user
 	end
 
 	def show
@@ -12,10 +14,10 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.list_restaurants(@neighbourhood.name)
 		@one_restaurant = Restaurant.random_item(@restaurants)
 		return @one_restaurant
-	end 
+	end
 
 
-	private 
+	private
 
 	def restaurant_params
 		params.require(:restaurant).permit(:name, :address)
