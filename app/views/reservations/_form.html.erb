@@ -1,5 +1,4 @@
 <%= form_for [@user, @reservation] do |f| %>
-
   <div class="field">
     <%= f.label :date %><br />
     <%= select_date Date.today, prefix: :date %>
@@ -14,7 +13,7 @@
   </div>
   <div class="field">
     <%= label_tag :neighbourhood %><br/>
-    <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
+    <%= select_tag :neighbourhood,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
   </div>
   <div class="actions"><br/>
     <%= f.submit %>

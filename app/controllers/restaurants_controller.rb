@@ -1,4 +1,11 @@
 class RestaurantsController < ApplicationController
+	before_action :ensure_logged_in
+
+	def index
+		@current_user ||= User.find(session[:user_id]) if session[:user_id]
+		@restaurants = @current_user.restaurants.all
+
+	end
 	def new
 		@restaurant = Restaurant.new
 	end
@@ -7,6 +14,24 @@ class RestaurantsController < ApplicationController
 		@user = current_user
 		@restaurant = Restaurant.new(restaurant_params)
 		redirect_to @user
+		@user = User.find(params[:user_id])
+		@restaurant = Restaurant.new
+    	@neighbourhoods = Neighbourhood.all
+	end
+
+	def create
+    	@neighbourhoods = Neighbourhood.all
+    	@user = User.find(params[:user_id])
+    	@restaurant = @user.owned_restaurants.create(restaurant_params)
+
+		respond_to do |format|
+			if @restaurant.save
+				format.html { redirect_to user_restaurants_path(@user), notice: 'Restaurant was successfully created.' }
+			else
+				format.html { render :new , notice: 'failed to add' }
+
+			end
+	    end
 	end
 
 	def show
@@ -20,7 +45,7 @@ class RestaurantsController < ApplicationController
 	private
 
 	def restaurant_params
-		params.require(:restaurant).permit(:name, :address)
+		params.require(:restaurant).permit(:description, :name, :address,)
 	end
 
 

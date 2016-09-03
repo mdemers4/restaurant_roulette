@@ -1,0 +1,35 @@
+<%= form_for @restaurant, url: {action: "create"} do |f| %>
+	<% if @restaurant.errors.any? %>
+		<div id= "error_explanation">
+		<h2> <%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved: </h2>
+		<ul>
+			<% @restaurant.errors.full_messages.each do |message| %>
+				<li> <%= message %></li>
+			<% end %>
+		</ul>
+		</div>
+	<% end %>
+
+
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address %>
+</div>
+<div class= "field">
+	<%= f.label :description %> <br/>
+	<%= f.text_field :description, size: "60x12" %>
+</div>
+<div class="field">
+  <%= label_tag :neighbourhood %><br/>
+  <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhoods.collect{ |n| [n.name, n.id] }), :prompt => 'Select One' %>
+</div>
+
+<div class="actions"><br/>
+  <%= f.submit %>
+</div>
+<% end %>
+

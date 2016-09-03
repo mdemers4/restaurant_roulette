@@ -3,13 +3,16 @@ class ReservationsController < ApplicationController
 
 
   def index
-    @reservation = Reservation.all
+    @reservations = Reservation.all
+    @users = User.all
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def new
     @reservation = Reservation.new
     @neighbourhood = Neighbourhood.all
-  end
+	end
+
 
   def create
     @reservation = Reservation.new(reservation_params)
