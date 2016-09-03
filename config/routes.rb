@@ -1,21 +1,14 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "reservations#index"
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do 
+    resources :restaurants, only: [:index, :new, :create]
+  end
 
   resources :reservations, only: [:index, :new, :create]
 
-  resources :restaurants, only: [:new, :create, :show]
+  resources :restaurants, only: [:show]
 
   resources :sessions, only: [:new, :create, :destroy]
 

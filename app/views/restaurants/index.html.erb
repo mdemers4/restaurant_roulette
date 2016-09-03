@@ -1,0 +1,11 @@
+<h1>This is the Restaurants index page</h1>
+
+
+<% @restaurants.each do |restaurant| %>
+	<%= restaurant.name %> <br>
+<% end %>
+
+
+<%= link_to 'Add a Restaurant:', new_user_restaurant_path %> <br/>
+
+<%= link_to 'Back to Home Page', root_path %>

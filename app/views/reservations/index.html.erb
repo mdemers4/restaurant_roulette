@@ -1,1 +1,11 @@
 <h1>Reservation Index View</h1>
+
+<% @current_user.reservations.each do |reservation| %>
+	<%= reservation.time %> 
+	<%= reservation.date %> <br> 
+<% end %>
+
+
+
+
+<%= link_to "Manage Restaurants", user_restaurants_path(@current_user) %>
