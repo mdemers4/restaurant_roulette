@@ -2,26 +2,19 @@ class RestaurantsController < ApplicationController
 	before_action :ensure_logged_in
 
 	def index
-		@current_user ||= User.find(session[:user_id]) if session[:user_id]
-		@restaurants = @current_user.restaurants.all
+		@current_user = current_user
+		@restaurants = @current_user.owned_restaurants.all
 
 	end
 	def new
 		@restaurant = Restaurant.new
+		@neighbourhoods = Neighbourhood.all
 	end
 
-	def create
-		@user = current_user
-		@restaurant = Restaurant.new(restaurant_params)
-		redirect_to @user
-		@user = User.find(params[:user_id])
-		@restaurant = Restaurant.new
-    	@neighbourhoods = Neighbourhood.all
-	end
 
 	def create
     	@neighbourhoods = Neighbourhood.all
-    	@user = User.find(params[:user_id])
+    	@user = current_user
     	@restaurant = @user.owned_restaurants.create(restaurant_params)
 
 		respond_to do |format|
@@ -45,7 +38,7 @@ class RestaurantsController < ApplicationController
 	private
 
 	def restaurant_params
-		params.require(:restaurant).permit(:description, :name, :address,)
+		params.require(:restaurant).permit(:description, :name, :address, :neighbourhood_id)
 	end
 
 

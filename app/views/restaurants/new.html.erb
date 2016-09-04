@@ -1,35 +1,10 @@
-<<<<<<< HEAD
-<h1>Adding a new restaurant</h1>
 
-<%= form_for @restaurant do |f| %>
-  <% if @restaurant.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% @restaurant.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br/>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :neighbourhood_id %><br/>
-    <%= f.text_field :neighbourhood_id %>
-  </div>
-  <div class="actions"><%= f.submit %></div>
-<% end %>
-=======
+
+
 <h1>Add a Restaurant</h1>
 
 <%= render 'form', restaurant: @restaurant %>
 
+
 <%= link_to 'Back', reservations_path %>
->>>>>>> master
+
