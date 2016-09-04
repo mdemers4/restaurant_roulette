@@ -28,10 +28,8 @@ class RestaurantsController < ApplicationController
 	end
 
 	def show
-		@neighbourhood = Neighbourhood.find(params[:id])
-		@restaurants = Restaurant.list_restaurants(@neighbourhood.name)
-		@one_restaurant = Restaurant.random_item(@restaurants)
-		return @one_restaurant
+		@restaurant = Restaurant.find(params[:id])
+		@reservations = @restaurant.reservations.all
 	end
 
 

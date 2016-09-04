@@ -1,13 +1,18 @@
-This is the restaurants/show page
-<br> 
-<!-- 
-<%= @restaurant %> <br/>
-<%= @restaurants %>
- -->
- <%= @one_restaurant.name %> <br/>
- <%= @one_restaurant.address %>
- <%= @one_restaurant.description %>
 
-<h1>BOOK RESERVATION</h1>
+<%= @restaurant.name %> <br>
+<%= @restaurant.address %> <br>
+<%= @restaurant.description %><br>
 
-<h1>chicken out</h1>
+<h1>Reservations for this restaurant:</h1>
+
+<% @reservations.each do |reservation| %>
+    <ul>
+        <li><%= @reservation.name %></li>
+        <li><%= @reservation.date %></li>
+        <li><%= @reservation.time %></li>
+        <li><%= @reservation.size %></li>
+    </ul>
+<% end %>
+
+<%= link_to "Back to Restaurants", user_restaurants_path %>
+

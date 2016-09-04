@@ -10,26 +10,26 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    @neighbourhood = Neighbourhood.all
+    @neighbourhoods = Neighbourhood.all
 	end
 
 
   def create
+    @user = current_user
+    @neighbourhoods = Neighbourhood.all
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = current_user
-    num_of_restaurants = count(@neighbourhood.restaurant)
-    random_num = rand(0..num_of_restaurants)
-    @reservation.restaurant = random_num
-    if @reservation.save
-      redirect_to user_reservations_path(@user), notice: "Reservation created"
-    else
-      render "new"
-    end
+      if @reservation.save
+        redirect_to root_path, notice: "Reservation created"
+      else
+        render "new", notice: "reservation was not added"
+      end
   end
 
+
   private
+
   def reservation_params
-    params.require(:reservation).permit(:time, :date, :size)
+    params.require(:reservation).permit(:time, :date, :size, :neighbourhood_id)
   end
 
 end

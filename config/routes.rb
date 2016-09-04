@@ -4,15 +4,16 @@ Rails.application.routes.draw do
   root "reservations#index"
 
   resources :users, only: [:new, :create, :show] do 
-    resources :restaurants, only: [:index,:new, :create]
+    resources :restaurants, only: [:index,:new, :create, :show]
     end
 
 
   resources :reservations, only: [:index, :new, :create]
 
-
   resources :restaurants, only: [:show]
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :confirmation, only: [:index] 
 
 end
