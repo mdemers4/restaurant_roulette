@@ -9,12 +9,12 @@
   <%= select_hour Time.current, prefix: :time %>
 </div>
 <div class="field">
-  <%= f.label :size %><br />
+  <%= f.label :size, "Party Size" %><br />
   <%= f.select :size, (1..10) %>
 </div>
 <div class="field">
-  <%= label_tag :neighbourhood %><br/>
-  <%= select_tag :neighbourhood_id,  options_for_select(@neighbourhood.collect{ |n| [n.name, n.id] }) %>
+  <%= f.label :neighbourhood %><br/>
+  <%= f.select :neighbourhood, Neighbourhood.all.collect { |n| [ n.name, n.id ] } %>
 </div>
 <div class="actions"><br/>
   <%= f.submit %>

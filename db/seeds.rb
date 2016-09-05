@@ -16,24 +16,60 @@ Neighbourhood.create(
 	name: "Liberty Village")
 
 
-# Restaurant.create(
-# 	name: "papa's pizza",
-# 	address: '123 collage st',
-# 	neighbourhood: 1 ,
-# 	user: 1
-# 	)
-# Restaurant.create(
-# 	name: "Gen Tzo",
-# 	address: '123 spedina st',
-# 	neighbourhood: 2,
-# 	user: 2
-# 	)
-# Restaurant.create(
-# 	name: "hipster central",
-# 	address: 'east liberty st ',
-# 	neighbourhood: 3,
-# 	user: 3
-# 	)
+Restaurant.create(
+	name: "papa's pizza",
+	address: '123 college st',
+	neighbourhood: 1 ,
+	user: 1
+	)
+Restaurant.create(
+  name: "dick's pizza",
+  address: '124 college st',
+  neighbourhood: 1 ,
+  user: 1
+  	)
+Restaurant.create(
+  name: "gino's pizza",
+  address: '567 college st',
+  neighbourhood: 1 ,
+  user: 1
+    	)
+Restaurant.create(
+  name: "more's pizza",
+  address: '50 college st',
+  neighbourhood: 2 ,
+  user: 1
+      	)
+Restaurant.create(
+  name: "pizza's pizza pizza",
+  address: '70 college st',
+  neighbourhood: 2 ,
+  user: 1
+        	)
+Restaurant.create(
+	name: "Luigi's pizza",
+	address: '386 college st',
+	neighbourhood: 2 ,
+	user: 1
+	)
+Restaurant.create(
+  name: "sushi rolls for everyone",
+  address: '123 college st',
+  neighbourhood: 2 ,
+  user: 1
+)
+Restaurant.create(
+	name: "Mother's Dumplings",
+	address: '123 spedina st',
+	neighbourhood: 3,
+	user: 2
+	)
+Restaurant.create(
+	name: "hipster central",
+	address: 'east liberty st ',
+	neighbourhood: 3,
+	user: 3
+	)
 
 
 # @user = User.create(

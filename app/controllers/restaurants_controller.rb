@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+	def index
+		@restaurants = Restaurant.all
+	end
+	
 	def new
 		@restaurants = Restaurant.new
 	end
@@ -12,10 +16,10 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.list_restaurants(@neighbourhood.name)
 		@one_restaurant = Restaurant.random_item(@restaurants)
 		return @one_restaurant
-	end 
+	end
 
 
-	private 
+	private
 
 	def restaurant_params
 		params.require(:restaurant).permit(:name, :address)
