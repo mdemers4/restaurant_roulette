@@ -1,6 +1,4 @@
-events#show page
 
-<br>
 <%= "Date: #{@reservation.date}" %> <br>
 <%= "time: #{Restaurant.convert_time(@reservation.time)}" %> <br>
 <%= "Party size: #{@reservation.size}" %> <br>
@@ -28,8 +26,9 @@ events#show page
 
     <%= f.hidden_field :restaurant_id, :value => @chosen_restaurant.id %>
 
-    <%= f.submit "confirm reservation" %>
+    <%= f.submit "Confirm Reservation" %>
 
 <% end %>
 
 
+<%= link_to "Play Again", reservation_path %>

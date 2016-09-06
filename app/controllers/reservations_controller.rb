@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @neighbourhoods = Neighbourhood.all
     @reservation = @user.reservations.new(reservation_params)
       if @reservation.save
-        redirect_to reservation_path(@reservation), notice: "Reservation created"
+        redirect_to reservation_path(@reservation)
       else
         render "new", notice: "reservation was not added"
       end
