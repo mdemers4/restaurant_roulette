@@ -2,10 +2,11 @@
 
 <% @reservations.each do |reservation| %>
 	<%= "Time of Reservation #{Restaurant.convert_time(reservation.time)}" %> <br>
-	<%= "Date of Reservation #{reservation.date}" %> <br> 
+	<%= "Date of Reservation #{reservation.date}" %> <br>
     <%= "Name: #{Restaurant.show_rest(reservation.restaurant_id).name}" %> <br>
     <%= "Address: #{Restaurant.show_rest(reservation.restaurant_id).address}" %> <br>
-    <%= "Description: #{Restaurant.show_rest(reservation.restaurant_id).description}" %> <br><br>
+    <%= "Description: #{Restaurant.show_rest(reservation.restaurant_id).description}" %> <br>
+		<%= link_to "Delete", reservation_path(id: reservation.id), method: :delete, data: { confirm: "Are you sure?" } %><br>
 <% end %>
 
 

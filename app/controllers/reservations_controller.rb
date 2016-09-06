@@ -5,8 +5,6 @@ class ReservationsController < ApplicationController
   def index
     @current_user = current_user
     @reservations = current_user.saved_reservations
-
-
   end
 
   def new
@@ -32,6 +30,13 @@ class ReservationsController < ApplicationController
     @neighbourhood_id = @reservation.neighbourhood.id
     @restaurants = Restaurant.list_restaurants(@neighbourhood_id)
     @chosen_restaurant = Restaurant.random_item(@restaurants)
+  end
+
+  def destroy
+    @reservation = SavedReservation.find(params[:id])
+    @reservation.destroy
+    flash[:success] = "Reservation Deleted!"
+    redirect_to reservations_path
   end
 
 
