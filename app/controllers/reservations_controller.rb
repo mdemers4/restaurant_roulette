@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
   def create
     @user = current_user
     @neighbourhoods = Neighbourhood.all
-    @reservation = Reservation.new(reservation_params)
+    @reservation = @user.reservations.new(reservation_params)
       if @reservation.save
         redirect_to root_path, notice: "Reservation created"
       else

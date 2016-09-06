@@ -1,4 +1,4 @@
-<%= form_for @reservation, url: {action: "create"} do |f| %>
+<%= form_for [@user, @reservation], url: {action: "create"} do |f| %>
   <% if @reservation.errors.any? %>
     <div id= "error_explanation">
     <h2> <%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved: </h2>
@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :neighbourhood %><br/>
-    <%= f.select :neighbourhood, Neighbourhood.all.collect { |n| [ n.name, n.id ] } %>
+    <%= f.select :neighbourhood_id, Neighbourhood.all.collect { |n| [ n.name, n.id ] } %>
   </div>
   <div class="actions"><br/>
     <%= f.submit %>
