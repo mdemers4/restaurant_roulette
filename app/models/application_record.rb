@@ -71,6 +71,15 @@ This method will shuffle the array of restaurants and return one OBJECT
 		SavedReservation.where(restaurant_id: rest_id)
 	end
 
+	def self.convert_time(time)
+		collect_army_time = time.to_s
+		collect_army_time = collect_army_time[11,2].to_i
+		if collect_army_time > 12 
+			return "#{collect_army_time % 12} PM" 
+		else
+			return "#{collect_army_time} AM"
+		end
+	end
 
 
 end

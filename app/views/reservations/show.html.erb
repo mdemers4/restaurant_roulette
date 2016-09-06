@@ -1,16 +1,16 @@
 events#show page
 
 <br>
-<%= @reservation.time %> <br>
-<%= @reservation.date %> <br>
+<%= "Date: #{@reservation.date}" %> <br>
+<%= "time: #{Restaurant.convert_time(@reservation.time)}" %> <br>
 <%= "Party size: #{@reservation.size}" %> <br>
 
 <div>
 <ul>
     <h1>Chosen Restaurant:</h1>
-    <li><%= @chosen_restaurant.name %> </li>
-    <li><%= @chosen_restaurant.address %> </li>
-    <li><%= @chosen_restaurant.description %> </li>
+    <li><%= "Name: #{@chosen_restaurant.name}" %> </li>
+    <li><%= "Address: #{@chosen_restaurant.address}" %> </li>
+    <li><%= "Description: #{@chosen_restaurant.description}" %> </li>
 </ul>
 </div>
 

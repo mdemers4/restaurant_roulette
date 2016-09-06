@@ -1,11 +1,11 @@
 <h1>Reservation Index View</h1>
 
 <% @reservations.each do |reservation| %>
-	<%= reservation.time %> <br>
-	<%= reservation.date %> <br> 
-    <%= Restaurant.show_rest(reservation.restaurant_id).name %> <br>
-    <%= Restaurant.show_rest(reservation.restaurant_id).address %> <br>
-    <%= Restaurant.show_rest(reservation.restaurant_id).description %> <br>
+	<%= "Time of Reservation #{Restaurant.convert_time(reservation.time)}" %> <br>
+	<%= "Date of Reservation #{reservation.date}" %> <br> 
+    <%= "Name: #{Restaurant.show_rest(reservation.restaurant_id).name}" %> <br>
+    <%= "Address: #{Restaurant.show_rest(reservation.restaurant_id).address}" %> <br>
+    <%= "Description: #{Restaurant.show_rest(reservation.restaurant_id).description}" %> <br><br>
 <% end %>
 
 

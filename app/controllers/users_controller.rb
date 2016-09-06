@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id # added function to start session after user have signed-up
-      redirect_to @user, notice: "Signed up!"
+      redirect_to root_path, notice: "Signed up!"
     else
       render "new"
     end

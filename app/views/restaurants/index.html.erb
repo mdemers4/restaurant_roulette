@@ -4,9 +4,9 @@
 <% @restaurants.each do |restaurant| %>
 <div>
     <ul>
-	<li><%= restaurant.name %> <br> </li>
-    <li> <%= restaurant.address %> <br> </li>
-    <li><%= restaurant.description %> <br> </li>
+	<li><%="Restaurant: #{restaurant.name}" %> <br> </li>
+    <li> <%= "Address: #{restaurant.address}" %> <br> </li>
+    <li><%= "Description: #{restaurant.description}" %> <br> </li>
     <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %>
     </ul>
 </div>
