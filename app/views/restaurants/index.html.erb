@@ -7,7 +7,9 @@
 	<li><%="Restaurant: #{restaurant.name}" %> <br> </li>
     <li> <%= "Address: #{restaurant.address}" %> <br> </li>
     <li><%= "Description: #{restaurant.description}" %> <br> </li>
-    <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %>
+    <li><%= "capacity: #{restaurant.capacity}" %> <br> </li>
+    <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %><br>
+    <%= link_to 'Delete', user_restaurant_path(:id => restaurant.id), method: :delete, data: {confirm: 'are you sure?'} %><br>
     </ul>
 </div>
 

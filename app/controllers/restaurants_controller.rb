@@ -30,15 +30,22 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 		@reservations = SavedReservation.get_reservations(@restaurant.id)
-		# @reservations = @restaurant.saved_reservations.alls
-		@user = current_user
+	end
+
+	def destroy
+		@restaurant = Restaurant.find(params[:id])
+		@restaurant.destroy
+		respond_to do |format|
+			format.html { redirect_to user_restaurants_path, notice: 'User was successfully destroyed.' }
+      		format.json { head :no_content }
+      	end
 	end
 
 
 	private
 
 	def restaurant_params
-		params.require(:restaurant).permit(:description, :name, :address, :neighbourhood_id)
+		params.require(:restaurant).permit(:description, :name, :address, :neighbourhood_id, :capacity)
 	end
 
 
