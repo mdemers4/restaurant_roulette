@@ -29,7 +29,8 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@reservations = @restaurant.reservations.all
+		@reservations = SavedReservation.get_reservations(@restaurant.id)
+		# @reservations = @restaurant.saved_reservations.alls
 		@user = current_user
 	end
 

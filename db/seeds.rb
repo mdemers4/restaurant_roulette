@@ -6,34 +6,34 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Neighbourhood.create(
-	name: "Little Italy")
+# Neighbourhood.create(
+# 	name: "Little Italy")
 
-Neighbourhood.create(
-	name: "China Town")
+# Neighbourhood.create(
+# 	name: "China Town")
 
-Neighbourhood.create(
-	name: "Liberty Village")
+# Neighbourhood.create(
+# 	name: "Liberty Village")
 
 
-Restaurant.create(
-	name: "papa's pizza",
-	address: '123 collage st',
-	neighbourhood: 1 ,
-	user: 1
-	)
-Restaurant.create(
-	name: "Gen Tzo",
-	address: '123 spedina st',
-	neighbourhood: 2,
-	user: 2
-	)
-Restaurant.create(
-	name: "hipster central",
-	address: 'east liberty st',
-	neighbourhood: 3,
-	user: 3
-	)
+# Restaurant.create(
+# 	name: "papa's pizza",
+# 	address: '123 collage st',
+# 	neighbourhood: 1 ,
+# 	user: 1
+# 	)
+# Restaurant.create(
+# 	name: "Gen Tzo",
+# 	address: '123 spedina st',
+# 	neighbourhood: 2,
+# 	user: 2
+# 	)
+# Restaurant.create(
+# 	name: "hipster central",
+# 	address: 'east liberty st',
+# 	neighbourhood: 3,
+# 	user: 3
+# 	)
 
 
 # User.create(

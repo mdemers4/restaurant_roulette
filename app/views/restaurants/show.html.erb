@@ -3,16 +3,17 @@
 <%= @restaurant.address %> <br>
 <%= @restaurant.description %><br>
 
-<h1>Reservations for this restaurant:</h1>
+<% @reservations.each do |r| %>
+<div>
+  <%= User.find(r.user_id).name %> <br>
+  <%= r.time %><br>
+  <%= r.date %><br>
+  <%= r.size %><br>
+  <br>
+</div>
+ <% end %>
 
-<% @reservations.each do |reservation| %>
-    <ul>
-        <li><%= @reservation.name %></li>
-        <li><%= @reservation.date %></li>
-        <li><%= @reservation.time %></li>
-        <li><%= @reservation.size %></li>
-    </ul>
-<% end %>
+
 
 <%= link_to "Back to Restaurants", user_restaurants_path %>
 

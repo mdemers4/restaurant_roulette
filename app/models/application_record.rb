@@ -65,7 +65,10 @@ This method will shuffle the array of restaurants and return one OBJECT
 	def self.show_rest(rest_id)
 		rest = Restaurant.where(id: rest_id)
 		rest[0] 
+	end
 
+	def self.get_reservations(rest_id)
+		SavedReservation.where(restaurant_id: rest_id)
 	end
 
 
