@@ -1,3 +1,36 @@
 events#show page
 
-<%= render [@user, @reservation] %>
+<br>
+<%= @reservation.time %> <br>
+<%= @reservation.date %> <br>
+<%= @reservation.size %> <br>
+<%= @reservation.neighbourhood_id %> <br>
+
+<div>
+<ul>
+    <h1>Chosen Restaurant:</h1>
+    <li><%= @chosen_restaurant.name %> </li>
+    <li><%= @chosen_restaurant.address %> </li>
+    <li><%= @chosen_restaurant.description %> </li>
+</ul>
+</div>
+
+
+<%= form_for([@user, @user.saved_reservations.build], {action: "create"}) do |f| %>
+
+    <%= f.hidden_field :date, :value => @reservation.date %>
+
+    <%= f.hidden_field :time, :value => @reservation.time %>
+
+    <%= f.hidden_field :size, :value => @reservation.size %>
+
+    <%= f.hidden_field :neighbourhood_id, :value => @reservation.neighbourhood_id %>
+
+
+    <%= f.hidden_field :restaurant_id, :value => @chosen_restaurant.id %>
+
+    <%= f.submit "confirm reservation" %>
+
+<% end %>
+
+

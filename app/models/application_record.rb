@@ -39,13 +39,13 @@ and return a true or false statement depending on their criteria:
 
 
 
-	def self.list_restaurants(neighbourhood)
+	def self.list_restaurants(neighbourhood_id)
 =begin 
 This method will iterate over a lot of restaurants, check if they are 
 available, and return an array of restaurants
 =end	
 		restaurants = []
-		neighbourhood_id = Neighbourhood.where(name: neighbourhood).first.id
+		# neighbourhood_id = Neighbourhood.where(name: neighbourhood).first.id
 		restaurants << Restaurant.where(neighbourhood_id: neighbourhood_id)
 		return restaurants
 	end
@@ -60,5 +60,14 @@ This method will shuffle the array of restaurants and return one OBJECT
 =end
 		return array[0].shuffle.sample	
 	end
+
+
+	def self.show_rest(rest_id)
+		rest = Restaurant.where(id: rest_id)
+		rest[0] 
+
+	end
+
+
 
 end

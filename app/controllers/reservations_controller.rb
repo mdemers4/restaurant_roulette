@@ -4,7 +4,8 @@ class ReservationsController < ApplicationController
 
   def index
     @current_user = current_user
-    @reservations = Reservation.all
+    @reservations = current_user.saved_reservations
+
 
   end
 
@@ -19,10 +20,18 @@ class ReservationsController < ApplicationController
     @neighbourhoods = Neighbourhood.all
     @reservation = @user.reservations.new(reservation_params)
       if @reservation.save
-        redirect_to root_path, notice: "Reservation created"
+        redirect_to reservation_path(@reservation), notice: "Reservation created"
       else
         render "new", notice: "reservation was not added"
       end
+  end
+
+  def show
+    @user = current_user
+    @reservation = Reservation.find(params[:id])
+    @neighbourhood_id = @reservation.neighbourhood.id
+    @restaurants = Restaurant.list_restaurants(@neighbourhood_id)
+    @chosen_restaurant = Restaurant.random_item(@restaurants)
   end
 
 
