@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @neighbourhoods = Neighbourhood.all
     @reservation = @user.reservations.new(reservation_params)
       if @reservation.save
-        redirect_to reservation_path(@reservation), notice: "Reservation created"
+        redirect_to reservation_path(@reservation)
       else
         render "new", notice: "reservation was not added"
       end
@@ -30,6 +30,13 @@ class ReservationsController < ApplicationController
     @neighbourhood_id = @reservation.neighbourhood.id
     @restaurants = Restaurant.list_restaurants(@neighbourhood_id)
     @chosen_restaurant = Restaurant.random_item(@restaurants)
+  end
+
+  def destroy
+    @reservation = SavedReservation.find(params[:id])
+    @reservation.destroy
+    flash[:success] = "Reservation Deleted!"
+    redirect_to reservations_path
   end
 
 

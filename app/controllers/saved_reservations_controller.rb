@@ -1,6 +1,6 @@
 class SavedReservationsController < ApplicationController
 
-    def create 
+    def create
       @user = current_user
       @saved_reservation = @user.saved_reservations.new(saved_reservation_params)
       if @saved_reservation.save
@@ -9,6 +9,7 @@ class SavedReservationsController < ApplicationController
         render "new", notice: "reservation was not added"
       end
     end
+
 
     private
 
