@@ -1,17 +1,19 @@
 
-<%= @restaurant.name %> <br>
-<%= @restaurant.address %> <br>
-<%= @restaurant.description %><br>
-
+<%= "Name: #{@restaurant.name}" %> <br>
+<%= "Address: #{@restaurant.address}" %> <br>
+<%= "Description: #{@restaurant.description}" %><br>
+<%= "Capacity: #{@restaurant.capacity}" %><br>
+<br>
+<h1>Reservations for this Restaurant:</h1>
 <% @reservations.each do |r| %>
-<div>
-  <%= User.find(r.user_id).name %> <br>
-  <%= "Date: #{r.date}" %><br>
-  <%= "Time: #{Restaurant.convert_time(r.time)}" %><br>
-  <%= "Party size: #{r.size}" %><br>
-  <br>
-</div>
- <% end %>
+    <div>
+        <%= User.find(r.user_id).name %> <br>
+        <%= "Date: #{r.date}" %><br>
+        <%= "Time: #{Restaurant.convert_time(r.time)}" %><br>
+        <%= "Party size: #{r.size}" %><br>
+        <br>
+    </div>
+<% end %>
 
 
 

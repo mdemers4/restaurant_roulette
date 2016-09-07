@@ -10,6 +10,7 @@
     <li><%= "capacity: #{restaurant.capacity}" %> <br> </li>
     <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %><br>
     <%= link_to 'Delete', user_restaurant_path(:id => restaurant.id), method: :delete, data: {confirm: 'are you sure?'} %><br>
+    <%= link_to 'edit', edit_user_restaurant_path(id: restaurant.id) %>
     </ul>
 </div>
 

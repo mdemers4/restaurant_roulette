@@ -15,7 +15,7 @@
   </div>
   <div class="field">
     <%= f.label :time %><br />
-    <%= f.time_select :time, {ampm: true, minute_step: 60} %>
+    <%= f.time_select :time, {ampm: true, minute_step: 60 } %>
   </div>
   <div class="field">
     <%= f.label :size %><br />
@@ -26,6 +26,7 @@
     <%= f.select :neighbourhood_id, Neighbourhood.all.collect { |n| [ n.name, n.id ] } %>
   </div>
   <div class="actions"><br/>
-    <%= f.submit %>
+
+    <%= f.submit  "Start Roulette" %>
   </div>
 <% end %>

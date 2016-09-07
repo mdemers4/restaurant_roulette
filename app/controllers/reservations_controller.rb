@@ -5,8 +5,6 @@ class ReservationsController < ApplicationController
   def index
     @current_user = current_user
     @reservations = current_user.saved_reservations
-
-
   end
 
   def new
