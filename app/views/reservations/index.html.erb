@@ -1,5 +1,6 @@
 <h1>Your Reservations:</h1>
 
+
 <% @reservations.each do |reservation| %>
 	<%= "Time of Reservation #{Restaurant.convert_time(reservation.time)}" %> <br>
 	<%= "Date of Reservation #{reservation.date}" %> <br> 
@@ -8,6 +9,7 @@
     <%= "Description: #{Restaurant.show_rest(reservation.restaurant_id).description}" %> <br>
 		<%= link_to "Delete", reservation_path(id: reservation.id), method: :delete, data: { confirm: "Are you sure?" } %><br>
 <% end %>
+
 
 
 <%= link_to "Start Restaurant Roulette", new_reservation_path() %> <br/>
