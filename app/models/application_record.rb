@@ -1,11 +1,14 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  	def self.time_and_date_overlap()
+  	def self.time_and_date_overlap(reservation_object)
 =begin
 This method will calculate a way of getting time and date
 and setting it as one single unit for chacking availability
 =end
+	# time = reservation_object.time
+	# date = 
+
   	end
 
 
@@ -18,6 +21,7 @@ and return a true or false statement depending on their criteria:
 	neighbourhood, time, capacity
 	* wont need till later
 =end
+		reservation = {}
 		restaurant_info = Restaurant.find_by(name: restaurant)
 		rest_id = restaurant_info.id
 		capacity = restaurant_info.capacity
