@@ -1,8 +1,8 @@
-<h1>Reservation Index View</h1>
+<h1>Get Started</h1>
 
 <% @reservations.each do |reservation| %>
 	<%= reservation.time %> <br>
-	<%= reservation.date %> <br> 
+	<%= reservation.date %> <br>
     <%= Restaurant.show_rest(reservation.restaurant_id).name %> <br>
     <%= Restaurant.show_rest(reservation.restaurant_id).address %> <br>
     <%= Restaurant.show_rest(reservation.restaurant_id).description %> <br>

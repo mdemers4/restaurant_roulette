@@ -15,25 +15,25 @@ Neighbourhood.create(
 Neighbourhood.create(
 	name: "Liberty Village")
 
-
-Restaurant.create(
-	name: "papa's pizza",
-	address: '123 collage st',
-	neighbourhood: 1 ,
-	user: 1
-	)
-Restaurant.create(
-	name: "Gen Tzo",
-	address: '123 spedina st',
-	neighbourhood: 2,
-	user: 2
-	)
-Restaurant.create(
-	name: "hipster central",
-	address: 'east liberty st',
-	neighbourhood: 3,
-	user: 3
-	)
+#
+# Restaurant.create(
+# 	name: "papa's pizza",
+# 	address: '123 collage st',
+# 	neighbourhood: 1 ,
+# 	user: 1
+# 	)
+# Restaurant.create(
+# 	name: "Gen Tzo",
+# 	address: '123 spedina st',
+# 	neighbourhood: 2,
+# 	user: 2
+# 	)
+# Restaurant.create(
+# 	name: "hipster central",
+# 	address: 'east liberty st',
+# 	neighbourhood: 3,
+# 	user: 3
+# 	)
 
 
 # User.create(
@@ -50,24 +50,24 @@ Restaurant.create(
 # 	user: @user
 # 	}
 
-# User.create(
-# 	name: "a",
-# 	email: "a@m.com",
-# 	phone: "9059459050",
-# 	password_digest: 123
-# 	)
-# User.create(
-# 	name: "b",
-# 	email: "b@m.com",
-# 	phone: "9059259050",
-# 	password_digest: 123
-# 	)
-# User.create(
-# 	name: "mitch",
-# 	email: "mitch@m.com",
-# 	phone: "9059259050",
-# 	password_digest: 321
-# 	)
+User.create(
+	name: "a",
+	email: "a@m.com",
+	phone: "9059459050",
+	password_digest: 123
+	)
+User.create(
+	name: "b",
+	email: "b@m.com",
+	phone: "9059259050",
+	password_digest: 123
+	)
+User.create(
+	name: "mitch",
+	email: "mitch@m.com",
+	phone: "9059259050",
+	password_digest: 321
+	)
 
 # Reservation.create(
 # 	time: nil,
