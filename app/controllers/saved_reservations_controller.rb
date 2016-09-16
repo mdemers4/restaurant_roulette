@@ -3,6 +3,8 @@ class SavedReservationsController < ApplicationController
     def create
       @user = current_user
       @saved_reservation = @user.saved_reservations.new(saved_reservation_params)
+      @reservation = Reservation.destroy_all
+
       if @saved_reservation.save
         redirect_to root_path, notice: "Reservation created"
       else
@@ -10,6 +12,11 @@ class SavedReservationsController < ApplicationController
       end
     end
 
+  def destroy
+    @reservation = SavedReservation.find(params[:id])
+    flash[:success] = "Reservation Deleted!" 
+    redirect_to reservations_path 
+  end
 
     private
 

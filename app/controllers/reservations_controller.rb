@@ -30,6 +30,7 @@ class ReservationsController < ApplicationController
     @neighbourhood_id = @reservation.neighbourhood.id
     @restaurants = Restaurant.list_restaurants(@neighbourhood_id)
     @chosen_restaurant = Restaurant.random_item(@restaurants)
+
     @hash = Gmaps4rails.build_markers(@chosen_restaurant) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
@@ -37,10 +38,10 @@ end
   end
 
   def destroy
-    @reservation = SavedReservation.find(params[:id])
-    @reservation.destroy
-    flash[:success] = "Reservation Deleted!"
-    redirect_to reservations_path
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy 
+    flash[:success] = "Reservation Deleted!" 
+    redirect_to reservations_path 
   end
 
 

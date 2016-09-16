@@ -56,6 +56,7 @@ class RestaurantsController < ApplicationController
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
 		@restaurant.destroy
+		@restaurant.saved_reservations.destroy
 		respond_to do |format|
 			format.html { redirect_to user_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
       		format.json { head :no_content }

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
+    if current_user 
+      redirect_to reservations_path
+    end
   end
 
   def create
