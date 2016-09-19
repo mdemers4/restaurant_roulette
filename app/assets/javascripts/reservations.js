@@ -40,7 +40,7 @@ $(function() {
         console.log("user id:" +_id)
         console.log("time:" + _time)
 
-        $('#reservation-form').fadeOut();
+        $('#new-reservation-form').fadeOut();
         $('#conformation-form').fadeIn();
         $('<div>').attr('class', 'name').html("Name: " + _restaurant.name).appendTo('#conformation-details')
         $('<div>').attr('class', 'name').html("Address: " +_restaurant.address).appendTo('#conformation-details')

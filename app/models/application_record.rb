@@ -55,24 +55,12 @@ available, and return an array of restaurants
 	end
 
 
-
-
-
-	def self.random_item(array)
-=begin
-This method will shuffle the array of restaurants and return one OBJECT
-=end
-		return array[0].sample	
-	end
-
-
 	def self.show_rest(rest_id)
-		rest = Restaurant.where(id: rest_id)
-		rest[0]
+		self.find_by(id: rest_id)
 	end
 
 	def self.get_reservations(rest_id)
-		SavedReservation.where(restaurant_id: rest_id)
+		self.where(restaurant_id: rest_id)
 	end
 
 	def self.convert_time(time)
