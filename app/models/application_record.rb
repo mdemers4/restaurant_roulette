@@ -76,8 +76,7 @@ This method will shuffle the array of restaurants and return one OBJECT
 	end
 
 	def self.convert_time(time)
-		collect_army_time = time.to_s
-		collect_army_time = collect_army_time[11,2].to_i
+		collect_army_time = time
 		if collect_army_time > 12
 			return "#{collect_army_time % 12} PM"
 		else

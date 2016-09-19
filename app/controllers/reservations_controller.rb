@@ -4,28 +4,31 @@ class ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = @user.saved_reservations
+    @reservations = @user.reservations
   end
 
   def new
     @reservation = Reservation.new
     @neighbourhoods = Neighbourhood.all
-	end
+
+	 end
 
 
   def create
     @user = current_user
     @neighbourhoods = Neighbourhood.all
-    @reservation = @user.reservations.new(reservation_params)
+    @reservation = @user.reservations.create(reservation_params)
       if @reservation.save
-        redirect_to reservation_path(@reservation)
-      else
-        render "new", notice: "reservation was not added"
-      end
+        # format.html { redirect_to reservations_path, notice: 'reservation was successfully created.' }
+        # format.json { render @reservation}
+          # redirect_to reservations_path, notice: "Reservation created"
+        render json: @reservation
+        else
+          render "new", notice: "reservation was not added"
+        end
   end
 
   def show
-    @user = current_user
     @reservation = Reservation.find(params[:id])
     @neighbourhood_id = @reservation.neighbourhood.id
     @restaurants = Restaurant.list_restaurants(@neighbourhood_id)
@@ -34,12 +37,13 @@ class ReservationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@chosen_restaurant) do |user, marker|
       marker.lat user.latitude
       marker.lng user.longitude
-end
+    end
   end
+
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @reservation.destroy 
+    @reservation.destroy
     flash[:success] = "Reservation Deleted!" 
     redirect_to reservations_path 
   end
@@ -48,7 +52,20 @@ end
   private
 
   def reservation_params
-    params.require(:reservation).permit(:time, :date, :size, :neighbourhood_id)
+    params.require(:reservation).permit(:time, :date, :size, :neighbourhood_id, :restaurant_id)
+    # params.require(:reservation).permit!
   end
 
 end
+# params = ActionController::Parameters.new({
+#   person: {
+#     name: 'Francesco',
+#     age:  22,
+#     role: 'admin'
+#   }
+# })
+
+# permitted = params.require(:person).permit(:name, :age)
+# permitted            # => {"name"=>"Francesco", "age"=>22}
+# permitted.class      # => ActionController::Parameters
+# permitted.permitted? # => true

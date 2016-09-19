@@ -1,6 +1,19 @@
-<h1>New Reservation View</h1>
+<div id = 'neighbourhood-form' value = "">
+    <h1>Choose a Neighbourhood</h1>
+    <% @neighbourhoods.each do |neighbourhood| %>
+    <button id = 'neighbourhood' value = "<%=neighbourhood.id%>"><%= neighbourhood.name %></button>
+    <% end %>
+</div>
+<div id = 'new-reservation-form' style= 'display: none';> 
+    <%= render 'form'%> 
+</div>
 
-<%= render 'form', reservation: @reservation %>
+<div id = 'conformation-form' style = 'display: none'>
+    <h1>Generated Restaurant:</h1>
+    <div id ='conformation-details'></div>
+    <button id ='conformation'>Confirm Reservation</button>
+</div>
+
 
 <%= link_to "back to home page", reservations_path %>
 

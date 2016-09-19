@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     resource :saved_reservations, only: [:create, :destroy]
   end
+  resources :neighbourhood, only: [:show]
 
   resources :reservations, only: [:index, :new, :create, :show, :destroy]
 
