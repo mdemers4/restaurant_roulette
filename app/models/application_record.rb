@@ -53,10 +53,12 @@ class ApplicationRecord < ActiveRecord::Base
 
 	def self.convert_time(time)
 		collect_army_time = time
-		if collect_army_time > 12
-			return "#{collect_army_time % 12} PM"
-		else
-			return "#{collect_army_time} AM"
+		if defined? collect_army_time
+			if collect_army_time > 12
+				return "#{collect_army_time % 12} PM"
+			else
+				return "#{collect_army_time} AM"
+			end
 		end
 	end
 

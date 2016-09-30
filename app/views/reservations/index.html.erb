@@ -1,5 +1,6 @@
 <h1>Your Reservations:</h1>
 
+<%= link_to "Start Restaurant Roulette", new_reservation_path() %> <br/>
 
 <% @reservations.each do |reservation| %>
 	<%= "Time of Reservation: #{Restaurant.convert_time(reservation.time)}" %> <br>
@@ -13,6 +14,5 @@
 
 
 
-<%= link_to "Start Restaurant Roulette", new_reservation_path() %> <br/>
 
 <%= link_to "Manage Restaurants", user_restaurants_path(@current_user) %>
