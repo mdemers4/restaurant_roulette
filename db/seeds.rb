@@ -56,24 +56,24 @@ Neighbourhood.create(
 # 	user: @user
 # 	}
 
-# User.create(
-# 	name: "a",
-# 	email: "a@m.com",
-# 	phone: "9059459050",
-# 	password_digest: 123
-# 	)
-# User.create(
-# 	name: "b",
-# 	email: "b@m.com",
-# 	phone: "9059259050",
-# 	password_digest: 123
-# 	)
-# User.create(
-# 	name: "mitch",
-# 	email: "mitch@m.com",
-# 	phone: "9059259050",
-# 	password_digest: 321
-# 	)
+User.create(
+	name: "a",
+	email: "a@m.com",
+	phone: "9059459050",
+	password_digest: 123
+	)
+User.create(
+	name: "b",
+	email: "b@m.com",
+	phone: "9059259050",
+	password_digest: 123
+	)
+User.create(
+	name: "mitch",
+	email: "mitch@m.com",
+	phone: "9059259050",
+	password_digest: 321
+	)
 
 # Reservation.create(
 # 	time: nil,
