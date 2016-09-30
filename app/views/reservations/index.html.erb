@@ -1,12 +1,16 @@
+<<<<<<< HEAD
 <h1>Get Started</h1>
 
 <% @reservations.each do |reservation| %>
-	<%= reservation.time %> <br>
-	<%= reservation.date %> <br>
-    <%= Restaurant.show_rest(reservation.restaurant_id).name %> <br>
-    <%= Restaurant.show_rest(reservation.restaurant_id).address %> <br>
-    <%= Restaurant.show_rest(reservation.restaurant_id).description %> <br>
+	<%= "Time of Reservation: #{Restaurant.convert_time(reservation.time)}" %> <br>
+	<%= "Date of Reservation: #{Restaurant.convert_date(reservation.date)}" %> <br>
+    <%= "Restaurant: #{Restaurant.show_rest(reservation.restaurant_id).name}" %> <br>
+    <%= "Address: #{Restaurant.show_rest(reservation.restaurant_id).address}" %> <br>
+    <%= "Description: #{Restaurant.show_rest(reservation.restaurant_id).description}" %> <br>
+		<%= link_to "Delete", reservation_path(id: reservation.id), method: :delete, data: { confirm: "Are you sure?" } %><br>
+        <%= link_to "See Reservation Details", reservation_path(reservation) %><br><br>
 <% end %>
+
 
 
 <%= link_to "Start Restaurant Roulette", new_reservation_path() %> <br/>

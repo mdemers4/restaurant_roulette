@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
+
   def new
+    if current_user
+      redirect_to reservations_path
+    end
   end
 
   def create
@@ -7,7 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
 
-      redirect_to user_path(user.id), notice: "Logged in!"
+      redirect_to reservations_path 
     else
       flash.now[:alert] = "Invalid email or password"
       render "new"
@@ -16,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to new_user_path, notice: "Logged out!"
+    redirect_to new_session_path, notice: "Logged out!"
   end
 end

@@ -1,2 +1,0 @@
-class ConfimationController < ApplicationController
-end

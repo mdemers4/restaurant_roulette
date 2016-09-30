@@ -4,10 +4,13 @@
 <% @restaurants.each do |restaurant| %>
 <div>
     <ul>
-	<li><%= restaurant.name %> <br> </li>
-    <li> <%= restaurant.address %> <br> </li>
-    <li><%= restaurant.description %> <br> </li>
-    <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %>
+	<li><%="Restaurant: #{restaurant.name}" %> <br> </li>
+    <li> <%= "Address: #{restaurant.address}" %> <br> </li>
+    <li><%= "Description: #{restaurant.description}" %> <br> </li>
+    <li><%= "capacity: #{restaurant.capacity}" %> <br> </li>
+    <%= link_to "See reservations", user_restaurant_path(:id => restaurant.id) %><br>
+    <%= link_to 'Delete', user_restaurant_path(:id => restaurant.id), method: :delete, data: {confirm: 'are you sure?'} %><br>
+    <%= link_to 'edit', edit_user_restaurant_path(id: restaurant.id) %>
     </ul>
 </div>
 
@@ -16,6 +19,6 @@
 
 <%= link_to 'Add a Restaurant:', new_user_restaurant_path %> <br/>
 
-<%= link_to 'Back to Home Page', root_path %>
+<%= link_to 'Back to Home Page', reservations_path %>
 
 
