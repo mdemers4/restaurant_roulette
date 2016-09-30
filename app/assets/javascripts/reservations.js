@@ -15,7 +15,7 @@ $(function() {
             randomrestaurant = data[Math.floor(Math.random()*data.length)];
             _restaurant = randomrestaurant;
             //console.log(_restaurant);
-            $('#neighbourhood-form').fadeOut();
+            $('#neighbourhood-form').html("")
             $('#new-reservation-form').fadeIn();
         }).fail(function (jqXHR, status){
             alert('Error!')
@@ -41,7 +41,7 @@ $(function() {
         console.log("user id:" +_id)
         console.log("time:" + _time)
 
-        $('#new-reservation-form').fadeOut();
+        $('#new-reservation-form').html("");
         $('#conformation-form').fadeIn();
         $('<div>').attr('class', 'name').html("Name: " + _restaurant.name).appendTo('#conformation-details')
         $('<div>').attr('class', 'name').html("Address: " +_restaurant.address).appendTo('#conformation-details')
