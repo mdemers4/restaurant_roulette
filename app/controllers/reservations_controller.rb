@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
     @user = current_user
     @neighbourhoods = Neighbourhood.all
     @reservation = @user.reservations.create(reservation_params)
+    #if.request.hxr? returns true if ajax
       if @reservation.save
         render json: @reservation
         else

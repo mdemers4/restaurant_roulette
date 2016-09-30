@@ -29,6 +29,7 @@ $(function() {
         var month = $('#reservation_date_2i').find(':selected').attr('value');
         var day = $('#reservation_date_3i').find(':selected').attr('value');
         _date = Date(year + '-' + month + '-' + day)
+        // "Tue Sep 20 - 11" format of json
 
         _time = Number($('#reservation_time_4i').find(':selected').attr('value'));
         _size = Number($('#reservation_size').find(':selected').attr('value'));
